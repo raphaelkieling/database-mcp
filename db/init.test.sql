@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS posts (
 
 -- Seed data
 INSERT INTO users (name, email) VALUES
-    ('John Doe', 'john@example.com'),
-    ('Jane Smith', 'jane@example.com');
+    ('John Doe', 'johnv2@example.com'),
+    ('Jane Smith', 'janev2@example.com');
 
 INSERT INTO posts (title, content, user_id) VALUES
     ('First Post', 'This is the first test post', 1),
