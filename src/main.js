@@ -1,5 +1,5 @@
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { createServer } from "./server";
+import { createServer } from "./server.js";
 
 const databaseUrlEnv = process.env.DATABASE_URL;
 

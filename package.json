@@ -2,7 +2,8 @@
   "name": "database-mcp-server",
   "version": "1.0.0",
   "description": "Database MCP server",
-  "main": "main.js",
+  "type": "module",
+  "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js",
     "test:setup": "chmod +x ./scripts/test-setup.sh && ./scripts/test-setup.sh",
@@ -18,7 +19,6 @@
     "vite": "^6.2.3"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
     "vitest": "^3.0.9"
   }
 }

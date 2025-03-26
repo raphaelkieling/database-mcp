@@ -10,8 +10,8 @@ Simple study around the Cursor MCP support.
 {
   "mcpServers": {
     "postgres": {
-      "command": "bun",
-      "args": ["/path/to/this/repository/main.ts"],
+      "command": "node",
+      "args": ["--experimental-modules","/path/to/this/repository/src/main.js"],
       "env": {
         "DATABASE_URL": "postgres://xx:xx@localhost/xx"
       }
