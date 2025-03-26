@@ -1,5 +1,5 @@
+import { afterAll, describe, expect, it } from "vitest";
 import { createMcpClient } from "./setup";
-import { expect, it, afterAll, describe } from "bun:test";
 
 describe("Server", async () => {
   const client = await createMcpClient();

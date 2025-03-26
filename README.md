@@ -1,4 +1,4 @@
-## Postgres MCP
+## Database MCP
 
 Simple study around the Cursor MCP support.
 

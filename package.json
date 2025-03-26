@@ -1,25 +1,24 @@
 {
-  "name": "postgres-mcp-server",
+  "name": "database-mcp-server",
   "version": "1.0.0",
-  "description": "Postgres MCP server",
+  "description": "Database MCP server",
   "main": "main.js",
   "scripts": {
-    "start": "bun main.ts",
-    "test": "chmod +x ./scripts/test-setup.sh && ./scripts/test-setup.sh"
+    "start": "node src/main.js",
+    "test:setup": "chmod +x ./scripts/test-setup.sh && ./scripts/test-setup.sh",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
+    "reflect-metadata": "^0.2.1",
     "typeorm": "^0.3.20",
-    "reflect-metadata": "^0.2.1"
+    "vite": "^6.2.3"
   },
   "devDependencies": {
-    "@types/bun": "latest",
-    "@types/node": "^20.11.28"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+    "jest": "^29.7.0",
+    "vitest": "^3.0.9"
   }
 }

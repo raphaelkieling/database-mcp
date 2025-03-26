@@ -26,7 +26,7 @@ echo "DATABASE_URL=$DATABASE_URL" > .env
 
 # Run tests
 echo "Running tests..."
-bun test
+npm run test
 
 # Capture test exit code
 TEST_EXIT_CODE=$?

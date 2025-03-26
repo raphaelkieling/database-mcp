@@ -9,7 +9,7 @@ export async function createMcpClient() {
 
   const transport = new StdioClientTransport({
     command: "bun",
-    args: ["src/main.ts"],
+    args: ["src/main.js"],
   });
 
   await client.connect(transport);

@@ -3,7 +3,7 @@ import { z } from "zod";
 import { DataSource } from "typeorm";
 import "reflect-metadata";
 
-export function createServer(databaseUrl: string) {
+export function createServer(databaseUrl) {
   const server = new McpServer({
     name: "DatabaseMCP",
     version: "1.0.0",
@@ -12,7 +12,7 @@ export function createServer(databaseUrl: string) {
   // Parse database URL and create DataSource options
   const url = new URL(databaseUrl);
   const dataSourceOptions = {
-    type: url.protocol.replace(":", "") as any,
+    type: url.protocol.replace(":", ""),
     host: url.hostname,
     port: parseInt(url.port),
     username: url.username,
