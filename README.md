@@ -2,6 +2,7 @@
 
 Simple database MCP implementation. For now, only `postgres` and `sql server`.
 
+- Clone this repo
 - Install `Node`
 - Install `Cursor`
 - Paste the following json at the `MCP` specification in the `Cursor` settings
