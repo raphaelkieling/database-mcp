@@ -9,20 +9,15 @@ export function createServer(databaseUrl) {
     version: "1.0.0",
   });
 
-  // Parse database URL and create DataSource options
-  const url = new URL(databaseUrl);
-  const dataSourceOptions = {
-    type: url.protocol.replace(":", ""),
-    host: url.hostname,
-    port: parseInt(url.port),
-    username: url.username,
-    password: url.password,
-    database: url.pathname.replace("/", ""),
+  const urlOptions = getUrlOptions(databaseUrl);
+
+  const dataSource = new DataSource({
+    type: urlOptions.protocol,
+    url: databaseUrl,
     synchronize: false,
     logging: false,
-  };
-
-  const dataSource = new DataSource(dataSourceOptions);
+    options: urlOptions.options,
+  });
 
   server.tool(
     "get_all_schemas",
@@ -49,7 +44,7 @@ export function createServer(databaseUrl) {
 
   server.tool(
     "get_table_schema",
-    "Use this tool to get the schema of a table",
+    "Use this tool to get the schema of a table, like the fields, types, and constraints. ",
     {
       schema: z.string().describe("The schema of the table"),
       table: z.string().describe("The table to get the schema of"),
@@ -92,4 +87,12 @@ export function createServer(databaseUrl) {
   );
 
   return server;
+}
+
+function getUrlOptions(databaseUrl) {
+  const url = new URL(databaseUrl);
+  return {
+    protocol: url.protocol.replace(":", ""),
+    options: Object.fromEntries(url.searchParams),
+  };
 }
