@@ -8,8 +8,8 @@ export async function createMcpClient() {
   });
 
   const transport = new StdioClientTransport({
-    command: "bun",
-    args: ["src/main.js"],
+    command: "node",
+    args: ["--experimental-modules", "src/main.js"],
   });
 
   await client.connect(transport);

@@ -1,5 +1,8 @@
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { createServer } from "./server.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const databaseUrlEnv = process.env.DATABASE_URL;
 
