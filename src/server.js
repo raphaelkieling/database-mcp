@@ -53,12 +53,34 @@ export function createServer(databaseUrl) {
     async ({ schema, table }) => {
       await dataSource.initialize();
       try {
-        const result = await dataSource.query(
-          `SELECT column_name, data_type, is_nullable, column_default
-           FROM information_schema.columns
-           WHERE table_schema = $1 AND table_name = $2`,
-          [schema, table]
-        );
+        let query;
+        let params = [schema, table];
+
+        switch (dataSource.options.type) {
+          case "postgres":
+          case "mysql":
+            query = `SELECT COLUMN_NAME, 
+                            DATA_TYPE, 
+                            IS_NULLABLE, 
+                            COLUMN_DEFAULT
+                     FROM INFORMATION_SCHEMA.COLUMNS
+                     WHERE TABLE_SCHEMA = $1 AND TABLE_NAME = $2`;
+            break;
+
+          case "mssql":
+            query = `SELECT COLUMN_NAME, 
+                            DATA_TYPE, 
+                            IS_NULLABLE, 
+                            COLUMN_DEFAULT
+                     FROM INFORMATION_SCHEMA.COLUMNS
+                     WHERE TABLE_SCHEMA = @0 AND TABLE_NAME = @1`;
+            break;
+
+          default:
+            throw new Error("Database not supported.");
+        }
+
+        const result = await dataSource.query(query, params);
 
         return {
           content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
