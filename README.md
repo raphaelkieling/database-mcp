@@ -1,8 +1,8 @@
-## Database MCP
+# Database MCP
 
-Simple study around the Cursor MCP support.
+Simple database MCP implementation.
 
-- Install `Bun`
+- Install `Node`
 - Install `Cursor`
 - Paste the following json at the `MCP` specification in the `Cursor` settings
 
@@ -19,3 +19,7 @@ Simple study around the Cursor MCP support.
   }
 }
 ```
+
+#### Example of chat:
+
+<img src="./example.png" height="600px">
