@@ -4,6 +4,7 @@
   "description": "Database MCP server",
   "type": "module",
   "main": "src/main.js",
+  "license": "MIT",
   "scripts": {
     "start": "node src/main.js",
     "test:e2e": "chmod +x ./scripts/test-setup.sh && ./scripts/test-setup.sh",
@@ -11,7 +12,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
     "dotenv": "^16.4.7",
