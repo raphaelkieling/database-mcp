@@ -6,7 +6,7 @@
   "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js",
-    "test:setup": "chmod +x ./scripts/test-setup.sh && ./scripts/test-setup.sh",
+    "test:e2e": "chmod +x ./scripts/test-setup.sh && ./scripts/test-setup.sh",
     "test": "vitest"
   },
   "keywords": [],

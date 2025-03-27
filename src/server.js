@@ -2,6 +2,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { DataSource } from "typeorm";
 import "reflect-metadata";
+import { getUrlOptions } from "./utils.js";
 
 export function createServer(databaseUrl) {
   const server = new McpServer({
@@ -87,12 +88,4 @@ export function createServer(databaseUrl) {
   );
 
   return server;
-}
-
-function getUrlOptions(databaseUrl) {
-  const url = new URL(databaseUrl);
-  return {
-    protocol: url.protocol.replace(":", ""),
-    options: Object.fromEntries(url.searchParams),
-  };
 }
